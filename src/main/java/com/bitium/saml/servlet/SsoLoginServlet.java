@@ -158,7 +158,7 @@ public abstract class SsoLoginServlet extends HttpServlet {
     protected void redirectToLoginWithSAMLError(HttpServletResponse response, Exception exception, String string) throws ServletException {
         try {
             if (exception != null) {
-                log.error("saml plugin error + " + exception.getMessage());
+                log.error("saml plugin error + " + exception.getMessage(), exception);
             }
             response.sendRedirect(getLoginFormUrl() + "?samlerror=" + string);
         } catch (IOException ioException) {
